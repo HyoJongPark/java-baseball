@@ -10,15 +10,12 @@ public class GameManger {
     private static final int NUMBER_OF_DIGITS = 3;
     private List<Integer> uniqueNumbers;
 
-    GameManger(){
-        generateUniqueNumbers();
-    }
-
     public List<Integer> getUniqueNumbers() {
         return this.uniqueNumbers;
     }
 
     private void generateUniqueNumbers() {
+        // 서로 다른 숫자 NUMBER_OF_DIGITS 개 생성 (3개)
         while (uniqueNumbers.size() < NUMBER_OF_DIGITS) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             if (!uniqueNumbers.contains(randomNumber)) {
