@@ -4,13 +4,13 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.List;
 
-public class Computer {
+public class GameManger {
     private static final int MIN_RANDOM_NUMBER = 1;
     private static final int MAX_RANDOM_NUMBER = 9;
     private static final int NUMBER_OF_DIGITS = 3;
     private List<Integer> uniqueNumbers;
 
-    Computer(){
+    GameManger(){
         generateUniqueNumbers();
     }
 
