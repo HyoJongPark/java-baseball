@@ -1,7 +1,5 @@
-package baseball;
+package baseball.service;
 
-import baseball.GameDecision;
-import baseball.GameResult;
 import baseball.view.input.InputParser;
 import baseball.view.input.InputValidator;
 import camp.nextstep.edu.missionutils.Randoms;

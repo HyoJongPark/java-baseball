@@ -1,5 +1,7 @@
-package baseball;
+package baseball.controller;
 
+import baseball.controller.BaseballGame;
+import baseball.service.GameManager;
 import baseball.view.input.InputParser;
 import baseball.view.input.InputValidator;
 import baseball.view.input.console.ConsoleInputManager;

@@ -1,4 +1,4 @@
-package baseball;
+package baseball.service;
 
 public enum GameDecision {
     RESTART("1"), // 게임 재시작

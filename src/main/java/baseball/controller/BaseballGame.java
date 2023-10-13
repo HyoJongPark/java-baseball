@@ -1,5 +1,7 @@
-package baseball;
+package baseball.controller;
 
+import baseball.service.GameDecision;
+import baseball.service.GameManager;
 import baseball.view.input.InputManager;
 import baseball.view.output.OutputManager;
 

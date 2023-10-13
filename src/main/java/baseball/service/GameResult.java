@@ -1,4 +1,4 @@
-package baseball;
+package baseball.service;
 
 public enum GameResult {
     STRIKE("스트라이크"),

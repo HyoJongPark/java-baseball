@@ -1,7 +1,5 @@
 package baseball.view.output;
 
-import baseball.GameResult;
-
 public interface OutputManager {
     void gameStartMessage();
     void userInputPromptMessage();
