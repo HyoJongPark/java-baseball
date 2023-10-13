@@ -8,7 +8,7 @@ public class BaseballGame {
     private final InputManager inputManager;
     private final GameManager gameManager;
 
-    BaseballGame(OutputManager outputManager, InputManager inputManager, GameManager gameManager) {
+    public BaseballGame(OutputManager outputManager, InputManager inputManager, GameManager gameManager) {
         this.outputManager = outputManager;
         this.inputManager = inputManager;
         this.gameManager = gameManager;
@@ -32,12 +32,12 @@ public class BaseballGame {
         outputManager.gameResult(gameManager.checkPlayerGuessInput(playerInput));
     }
     private void handleGameContinuation() {
-        GameDecision decision = gameManager.decideGameContinuation(inputManager.getPlayerInput());
-
+        GameDecision decision = GameDecision.decideGameContinuation(inputManager.getPlayerInput());
         if (decision == GameDecision.RESTART) {
             gameManager.reset();
             runGame();
         } else if (decision == GameDecision.EXIT) {
+            return;
         }
     }
 }

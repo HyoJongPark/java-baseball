@@ -16,14 +16,11 @@ public class GameManager {
     private final InputValidator inputValidator;
     private final List<Integer> uniqueNumbers;
     private boolean gameFinished;
-    GameManager(InputParser inputParser, InputValidator inputValidator) {
+    public GameManager(InputParser inputParser, InputValidator inputValidator) {
         this.inputParser = inputParser;
         this.inputValidator = inputValidator;
         uniqueNumbers = new ArrayList<>();
         gameFinished = false;
-    }
-    public List<Integer> getUniqueNumbers() {
-        return uniqueNumbers;
     }
     public void generateUniqueNumbers() {
         // 서로 다른 숫자 NUMBER_OF_DIGITS 개 생성 (3개)
@@ -34,7 +31,6 @@ public class GameManager {
             }
         }
     }
-
     public String checkPlayerGuessInput(String input) {
         List<Integer> playerInput = inputParser.parse(input);
         inputValidator.isValidInput(playerInput);
@@ -63,8 +59,6 @@ public class GameManager {
     public boolean isGameFinished() {
         return gameFinished;
     }
-
-
     public void reset() {
         this.gameFinished = false;
         this.uniqueNumbers.clear();
