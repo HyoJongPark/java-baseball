@@ -1,4 +1,4 @@
-package baseball;
+package baseball.constant;
 
 public class GameConst {
     public static final int MIN_RANDOM_NUMBER = 1;

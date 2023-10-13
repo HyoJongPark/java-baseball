@@ -1,6 +1,6 @@
 package baseball.view.output;
 
-import static baseball.view.output.MessageConst.*;
+import static baseball.constant.MessageConst.*;
 
 public abstract class AbstractOutputManager implements OutputManager {
     public void gameStartMessage() {

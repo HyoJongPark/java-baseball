@@ -1,5 +1,7 @@
 package baseball;
 
+import baseball.GameDecision;
+import baseball.GameResult;
 import baseball.view.input.InputParser;
 import baseball.view.input.InputValidator;
 import camp.nextstep.edu.missionutils.Randoms;
@@ -7,7 +9,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-import static baseball.GameConst.*;
+import static baseball.constant.GameConst.*;
 
 public class GameManager {
     private final InputParser inputParser;

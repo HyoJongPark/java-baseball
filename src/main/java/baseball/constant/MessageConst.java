@@ -1,4 +1,4 @@
-package baseball.view.output;
+package baseball.constant;
 
 public class MessageConst {
     public static final String LINE = "\n";

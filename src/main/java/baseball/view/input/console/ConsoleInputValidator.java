@@ -4,7 +4,7 @@ import baseball.view.input.InputValidator;
 
 import java.util.List;
 
-import static baseball.GameConst.*;
+import static baseball.constant.GameConst.*;
 
 public class ConsoleInputValidator implements InputValidator {
     @Override
