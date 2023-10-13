@@ -7,7 +7,14 @@ public enum GameDecision {
     GameDecision(String command) {
         this.command = command;
     }
-    public String getCommand() {
-        return command;
+
+    // 게임 종료 후, 플레이어 입력 값에 따라 재시작 또는 완전히 종료를 결정하는 로직
+    public static GameDecision decideGameContinuation(String input) {
+        for (GameDecision decision : GameDecision.values()) {
+            if (decision.command.equals(input)) {
+                return decision;
+            }
+        }
+        throw new IllegalArgumentException("1 또는 2를 입력하세요.");
     }
 }

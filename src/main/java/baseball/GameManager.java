@@ -35,7 +35,7 @@ public class GameManager {
         }
     }
 
-    public String checkPlayerGuessInput(String input) throws IllegalArgumentException {
+    public String checkPlayerGuessInput(String input) {
         List<Integer> playerInput = inputParser.parse(input);
         inputValidator.isValidInput(playerInput);
         return comparePlayerInput(playerInput);
@@ -64,15 +64,6 @@ public class GameManager {
         return gameFinished;
     }
 
-    // 게임 종료 후, 플레이어 입력 값에 따라 재시작 또는 완전히 종료를 결정하는 로직
-    public GameDecision decideGameContinuation(String input) throws IllegalArgumentException {
-        for (GameDecision decision : GameDecision.values()) {
-            if (decision.getCommand().equals(input)) {
-                return decision;
-            }
-        }
-        throw new IllegalArgumentException("1 또는 2를 입력하세요.");
-    }
 
     public void reset() {
         this.gameFinished = false;
