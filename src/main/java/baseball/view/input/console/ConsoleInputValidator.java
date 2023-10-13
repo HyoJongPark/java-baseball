@@ -8,7 +8,7 @@ import static baseball.constant.GameConst.*;
 
 public class ConsoleInputValidator implements InputValidator {
     @Override
-    public boolean isValidInput(List<Integer> playerInput) throws IllegalArgumentException {
+    public boolean isValidInput(List<Integer> playerInput) {
         if (playerInput.size() != NUMBER_OF_DIGITS) {
             throw new IllegalArgumentException(NUMBER_OF_DIGITS + "개의 숫자를 입력하세요.");
         }

@@ -16,11 +16,11 @@ public enum GameResult {
         }
 
         StringBuilder message = new StringBuilder();
-        if (strikes > 0) {
-            message.append(strikes).append(STRIKE.description + " ");
-        }
         if (balls > 0) {
-            message.append(balls).append(BALL.description);
+            message.append(balls).append(BALL.description + " ");
+        }
+        if (strikes > 0) {
+            message.append(strikes).append(STRIKE.description);
         }
 
         return String.valueOf(message);

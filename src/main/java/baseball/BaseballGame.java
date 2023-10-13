@@ -18,18 +18,12 @@ public class BaseballGame {
     }
     public void runGame() {
         gameManager.generateUniqueNumbers();
-        System.out.println(gameManager.getUniqueNumbers());
-        try {
-            while (!gameManager.isGameFinished()) {
-                playGame();
-            }
-        } catch (IllegalArgumentException e) {
-            //System.out.println(e.getMessage());
-            return;
+        //System.out.println(gameManager.getUniqueNumbers());
+        while (!gameManager.isGameFinished()) {
+            playGame();
         }
         outputManager.gameWinMessage();
         outputManager.gameEndPrompt();
-
         handleGameContinuation();
     }
     private void playGame() {
@@ -39,11 +33,7 @@ public class BaseballGame {
     }
     private void handleGameContinuation() {
         GameDecision decision = null;
-        try {
-            decision = gameManager.decideGameContinuation(inputManager.getPlayerInput());
-        } catch (IllegalArgumentException e) {
-            return;
-        }
+        decision = gameManager.decideGameContinuation(inputManager.getPlayerInput());
 
         if (decision == GameDecision.RESTART) {
             gameManager.reset();
