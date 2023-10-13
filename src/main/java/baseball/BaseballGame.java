@@ -32,8 +32,7 @@ public class BaseballGame {
         outputManager.gameResult(gameManager.checkPlayerGuessInput(playerInput));
     }
     private void handleGameContinuation() {
-        GameDecision decision = null;
-        decision = gameManager.decideGameContinuation(inputManager.getPlayerInput());
+        GameDecision decision = gameManager.decideGameContinuation(inputManager.getPlayerInput());
 
         if (decision == GameDecision.RESTART) {
             gameManager.reset();
