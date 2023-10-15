@@ -11,20 +11,28 @@ public enum GameResult {
     }
 
     public static String createResult(int strikes, int balls) {
-        if (strikes == 0 && balls == 0) {
-            return NOTHING.description;
-        }
-
         StringBuilder message = new StringBuilder();
-        if (balls > 0) {
-            message.append(balls).append(BALL.description + " ");
-        }
-        if (strikes > 0) {
-            message.append(strikes).append(STRIKE.description);
-        }
-
+        appendNothing(message, strikes, balls);
+        appendBalls(message, balls);
+        appendStrikes(message, strikes);
         return String.valueOf(message);
     }
 
+    private static void appendNothing(StringBuilder message, int balls, int strikes) {
+        if (strikes == 0 && balls == 0) {
+            message.append(NOTHING.description);
+        }
+    }
+    private static void appendBalls(StringBuilder message, int balls) {
+        if (balls > 0) {
+            message.append(balls).append(BALL.description).append(" ");
+        }
+    }
+
+    private static void appendStrikes(StringBuilder message, int strikes) {
+        if (strikes > 0) {
+            message.append(strikes).append(STRIKE.description);
+        }
+    }
 
 }
