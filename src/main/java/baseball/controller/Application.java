@@ -26,7 +26,7 @@ public class Application {
     private static InputParser inputParser() { return new ConsoleInputParser(); }
     private static InputValidator inputValidator() { return new ConsoleInputValidator(); }
     private static GameManager gameManager() {
-        return new GameManager(inputParser(), inputValidator());
+        return new GameManager();
     }
 
 }

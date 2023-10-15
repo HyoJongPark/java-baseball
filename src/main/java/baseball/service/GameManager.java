@@ -10,13 +10,9 @@ import java.util.List;
 import static baseball.constant.GameConst.*;
 
 public class GameManager {
-    private final InputParser inputParser;
-    private final InputValidator inputValidator;
     private final List<Integer> uniqueNumbers;
     private boolean gameFinished;
-    public GameManager(InputParser inputParser, InputValidator inputValidator) {
-        this.inputParser = inputParser;
-        this.inputValidator = inputValidator;
+    public GameManager() {
         uniqueNumbers = new ArrayList<>();
         gameFinished = false;
     }

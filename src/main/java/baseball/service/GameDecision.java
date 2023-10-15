@@ -18,7 +18,7 @@ public enum GameDecision {
     }
 
     private static void validateInput(String input) {
-        if (!input.equals(RESTART.command) || !input.equals(EXIT.command)) {
+        if (!input.equals(RESTART.command) && !input.equals(EXIT.command)) {
             throw new IllegalArgumentException("1 또는 2를 입력하세요.");
         }
     }
