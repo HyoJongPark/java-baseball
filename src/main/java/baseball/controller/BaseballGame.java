@@ -1,45 +1,54 @@
 package baseball.controller;
 
-import baseball.service.GameDecision;
 import baseball.service.GameManager;
 import baseball.view.input.InputManager;
+import baseball.view.input.InputParser;
+import baseball.view.input.InputValidator;
 import baseball.view.output.OutputManager;
+
+import java.util.List;
 
 public class BaseballGame {
     private final OutputManager outputManager;
     private final InputManager inputManager;
+    private final InputParser inputParser;
+    private final InputValidator inputValidator;
     private final GameManager gameManager;
 
-    public BaseballGame(OutputManager outputManager, InputManager inputManager, GameManager gameManager) {
+    public BaseballGame(OutputManager outputManager, InputManager inputManager, InputParser inputParser, InputValidator inputValidator, GameManager gameManager) {
         this.outputManager = outputManager;
         this.inputManager = inputManager;
+        this.inputParser = inputParser;
+        this.inputValidator = inputValidator;
         this.gameManager = gameManager;
     }
     public void intro() {
         outputManager.gameStartMessage();
     }
     public void runGame() {
-        gameManager.generateUniqueNumbers();
-        //System.out.println(gameManager.getUniqueNumbers());
+        gameManager.generateUniqueNumberList();
         while (!gameManager.isGameFinished()) {
             playGame();
         }
         outputManager.gameWinMessage();
         outputManager.gameEndPrompt();
-        handleGameContinuation();
+        checkRestart();
     }
     private void playGame() {
         outputManager.userInputPromptMessage();
-        String playerInput = inputManager.getPlayerInput();
-        outputManager.gameResult(gameManager.checkPlayerGuessInput(playerInput));
+        List<Integer> inputParse = inputParse(getInput());
+        inputValidator.isValidInput(inputParse);
+        outputManager.gameResult(gameManager.checkPlayerGuessInput(inputParse));
     }
-    private void handleGameContinuation() {
-        GameDecision decision = GameDecision.decideGameContinuation(inputManager.getPlayerInput());
-        if (decision == GameDecision.RESTART) {
-            gameManager.reset();
-            runGame();
-        } else if (decision == GameDecision.EXIT) {
-            return;
+    private String getInput() {
+        return inputManager.getPlayerInput();
+    }
+    private List<Integer> inputParse(String input) {
+        return inputParser.parse(input);
+    }
+    private void checkRestart() {
+        if (gameManager.checkForGameRestart(getInput())) {
+            this.runGame();
         }
     }
 }

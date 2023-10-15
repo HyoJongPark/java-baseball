@@ -1,6 +1,5 @@
 package baseball.controller;
 
-import baseball.controller.BaseballGame;
 import baseball.service.GameManager;
 import baseball.view.input.InputParser;
 import baseball.view.input.InputValidator;
@@ -13,7 +12,7 @@ import baseball.view.output.OutputManager;
 
 public class Application {
     public static void main(String[] args) {
-        BaseballGame baseballGame = new BaseballGame(outputManager(), inputManager(),gameManager());
+        BaseballGame baseballGame = new BaseballGame(outputManager(), inputManager(), inputParser(), inputValidator(), gameManager());
         baseballGame.intro();
         baseballGame.runGame();
     }
