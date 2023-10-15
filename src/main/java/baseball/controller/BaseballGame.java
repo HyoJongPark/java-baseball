@@ -1,5 +1,6 @@
 package baseball.controller;
 
+import baseball.service.GameDecision;
 import baseball.service.GameManager;
 import baseball.view.input.InputManager;
 import baseball.view.input.InputParser;
@@ -32,23 +33,18 @@ public class BaseballGame {
         }
         outputManager.gameWinMessage();
         outputManager.gameEndPrompt();
-        checkRestart();
+        checkRestart(inputManager.getPlayerInput());
     }
     private void playGame() {
         outputManager.userInputPromptMessage();
-        List<Integer> inputParse = inputParse(getInput());
+        List<Integer> inputParse = inputParser.parse(inputManager.getPlayerInput());
         inputValidator.isValidInput(inputParse);
-        outputManager.gameResult(gameManager.checkPlayerGuessInput(inputParse));
+        outputManager.gameResult(gameManager.comparePlayerInput(inputParse));
     }
-    private String getInput() {
-        return inputManager.getPlayerInput();
-    }
-    private List<Integer> inputParse(String input) {
-        return inputParser.parse(input);
-    }
-    private void checkRestart() {
-        if (gameManager.checkForGameRestart(getInput())) {
-            this.runGame();
+    private void checkRestart(String input) {
+        if (GameDecision.decideGameContinuation(input)) {
+            gameManager.reset();
+            runGame();
         }
     }
 }

@@ -28,14 +28,11 @@ public class GameManager {
             }
         }
     }
-    private void appendUniqueNumber(int number) {
-        uniqueNumbers.add(number);
-    }
     private boolean isUniqueNumber(int number) {
         return !uniqueNumbers.contains(number);
     }
-    public String checkPlayerGuessInput(List<Integer> playerInput) {
-        return comparePlayerInput(playerInput);
+    private void appendUniqueNumber(int number) {
+        uniqueNumbers.add(number);
     }
 
     public String comparePlayerInput(List<Integer> playerInput) {
@@ -46,7 +43,6 @@ public class GameManager {
         }
         return String.valueOf(GameResult.createResult(strikes, balls));
     }
-
     private int countStrikes(List<Integer> playerInput) {
         int strikes = 0;
         for (int i = 0; i < NUMBER_OF_DIGITS; i++) {
@@ -56,7 +52,6 @@ public class GameManager {
         }
         return strikes;
     }
-
     private int countBalls(List<Integer> playerInput) {
         int balls = 0;
         for (int i = 0; i < NUMBER_OF_DIGITS; i++) {
@@ -71,15 +66,6 @@ public class GameManager {
     public boolean isGameFinished() {
         return gameFinished;
     }
-    public boolean checkForGameRestart(String input) {
-        GameDecision decision = GameDecision.decideGameContinuation(input);
-        if (decision == GameDecision.RESTART) {
-            this.reset();
-            return true;
-        }
-        return false;
-    }
-
     public void reset() {
         this.gameFinished = false;
         this.uniqueNumbers.clear();
