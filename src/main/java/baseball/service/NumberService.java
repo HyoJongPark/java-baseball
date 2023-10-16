@@ -1,15 +1,22 @@
-package baseball.controller;
+package baseball.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NumberProcessor {
+public class NumberService {
     private static final int NUMBER_SIZE = 3;
     private static final int RANGE_MIN_NUMBER = 1;
     private static final int RANGE_MAX_NUMBER = 9;
 
+    public List<Integer> convertStringToIntList(String input) {
+        List<Integer> list = new ArrayList<>();
+        for (char c : input.toCharArray()) {
+            list.add(c - '0');
+        }
+        return list;
+    }
     public List<Integer> generateUniqueNumberList() {
         List<Integer> uniqueNumberList = new ArrayList<>();
 
