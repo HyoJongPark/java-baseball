@@ -3,7 +3,7 @@ package baseball.controller;
 import baseball.model.GameData;
 import baseball.service.GameService;
 import baseball.service.NumberService;
-import baseball.validator.NumberValidator;
+import baseball.validator.InputValidator;
 import baseball.view.InputView;
 import baseball.view.OutputVIew;
 
@@ -15,15 +15,15 @@ public class GameController {
     private final GameService gameService;
     private final NumberService numberService;
     private GameData gameData;
-    private final NumberValidator numberValidator;
+    private final InputValidator inputValidator;
 
-    public GameController(InputView inputView, OutputVIew outputView, GameService gameProcessor, NumberService numberService, GameData gameNumber, NumberValidator numberValidator) {
+    public GameController(InputView inputView, OutputVIew outputView, GameService gameProcessor, NumberService numberService, GameData gameNumber, InputValidator inputValidator) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.gameService = gameProcessor;
         this.numberService = numberService;
         this.gameData = gameNumber;
-        this.numberValidator = numberValidator;
+        this.inputValidator = inputValidator;
     }
 
     public void run() {
@@ -47,7 +47,8 @@ public class GameController {
 
     private void askForNumbersAndSave() {
         String input = inputView.askForNumbers();
-        List<Integer> playerNumberList = numberValidator.validate(numberService.convertStringToIntList(input));
+        inputValidator.validate(input);
+        List<Integer> playerNumberList = numberService.convertStringToIntList(input);
         gameData.setPlayerUniqueNumberList(playerNumberList);
     }
 

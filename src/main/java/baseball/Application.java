@@ -4,18 +4,18 @@ import baseball.controller.GameController;
 import baseball.model.GameData;
 import baseball.service.GameService;
 import baseball.service.NumberService;
-import baseball.validator.NumberValidator;
+import baseball.validator.InputValidator;
 import baseball.view.InputView;
 import baseball.view.OutputVIew;
 
 public class Application {
     public static void main(String[] args) {
-        GameController engin = new GameController(inputView(), outputView(), gameService(), numberService(), gameNumber(), numberValidator());
+        GameController engin = new GameController(inputView(), outputView(), gameService(), numberService(), gameNumber(), inputValidator());
         engin.run();
     }
 
-    private static NumberValidator numberValidator() {
-        return new NumberValidator();
+    private static InputValidator inputValidator() {
+        return new InputValidator();
     }
 
     private static final InputView inputView() {

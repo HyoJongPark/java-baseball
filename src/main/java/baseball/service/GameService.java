@@ -21,14 +21,14 @@ public class GameService {
     public GameService(NumberService numberService) {
         this.numberService = numberService;
     }
-    public void setting(GameData gameNumber) {
+    public void setting(GameData gameData) {
         List<Integer> computerNumberList = numberService.generateUniqueNumberList();
-        gameNumber.setComputerUniqueNumberList(computerNumberList);
+        gameData.setComputerUniqueNumberList(computerNumberList);
     }
 
-    public boolean compareNumberList(GameData gameNumber) {
+    public boolean compareNumberList(GameData gameData) {
         initCount();
-        compare(gameNumber.getComputerUniqueNumberList(), gameNumber.getPlayerUniqueNumberList());
+        compare(gameData.getComputerUniqueNumberList(), gameData.getPlayerUniqueNumberList());
         return isThreeStrike();
     }
     private boolean isThreeStrike() {
